@@ -1,4 +1,24 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.urls import reverse
+
 
 # Create your tests here.
+class SignupPageTests(TestCase):
+    def test_signup_form(self):
+        response = self.client.post(
+            reverse("signup"),
+            {
+                "username": "testuser",
+                "email": "testuser@email.com",
+                "password1": "testpass123",
+                "password2": "testpass123",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(get_user_model().objects.all()[0].username, "testuser")
+        print(get_user_model().objects.all()[0].username)
+
+    def test_homepage(self):
+        response = self.client.get(reverse("home"))
+        self.assertTemplateUsed("home.html")
