@@ -1,2 +1,4 @@
 .venv
 .ds_store
+*/__pycache__/
+*.pyc

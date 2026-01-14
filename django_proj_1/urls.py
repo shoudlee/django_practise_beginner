@@ -21,7 +21,7 @@ from django.views.generic.base import TemplateView
 # 这里23本质都是分支，只有4是endpoint,所以能给一个name
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts", include("accounts.urls")),
-    path("accounts", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
 ]
