@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",  # new
     # shoudle
     "accounts.apps.AccountsConfig",
+    "articles.apps.ArticlesConfig",
 ]
 
 MIDDLEWARE = [
